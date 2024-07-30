@@ -2,7 +2,7 @@ version: '3.8'
 services:
   chat:
     container_name: chat-app
-    image: python:3.11.0
+    image: python:3.10.12
     restart: always
     ports:
       - "5000:5000"
