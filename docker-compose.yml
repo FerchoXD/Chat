@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  chat:
+    container_name: chat-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_TABLE=${MYSQL_TABLE}
+      - MYSQL_PORT=${MYSQL_PORT}
+    volumes:
+      - .:/app
+    networks:
+      - ms-network
+
+networks:
+  ms-network:
+    driver: bridge

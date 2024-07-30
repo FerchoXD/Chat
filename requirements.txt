@@ -1,0 +1,13 @@
+flask
+keras
+nltk
+numpy
+pandas
+statsmodels
+matplotlib
+mysql-connector-python
+python-dotenv
+sqlalchemy
+transformers
+tensorflow
+tf-keras
