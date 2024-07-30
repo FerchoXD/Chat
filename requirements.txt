@@ -11,3 +11,4 @@ sqlalchemy
 transformers
 tensorflow
 tf-keras
+gunicorn
