@@ -2,9 +2,7 @@ version: '3.8'
 services:
   chat:
     container_name: chat-app
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: python:3.9-slim
     restart: always
     ports:
       - "5000:5000"
@@ -17,6 +15,11 @@ services:
       - MYSQL_PORT=${MYSQL_PORT}
     volumes:
       - .:/app
+    working_dir: /app
+    command: >
+      bash -c "
+      pip install --no-cache-dir -r requirements.txt &&
+      gunicorn --bind 0.0.0.0:5000 app:app"
     networks:
       - ms-network
 
